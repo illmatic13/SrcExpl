@@ -431,7 +431,7 @@ function! g:SrcExpl_Jump()
     endif
 
     " Open the buffer using edit window
-    exe "edit " . s:SrcExpl_currMark[0]
+    exe "tabnew " . s:SrcExpl_currMark[0]
     " Jump to the context line of that symbol
     call cursor(s:SrcExpl_currMark[1], s:SrcExpl_currMark[2])
     " Match the symbol of definition
@@ -953,7 +953,7 @@ function! <SID>SrcExpl_SelToJump(dir)
     " Indeed go back to the edit window
     silent! exe s:SrcExpl_editWin . "wincmd w"
     " Open the file containing the definition context
-    exe "edit " . l:fpath
+    exe "tabnew " . l:fpath
 
     " Modify the Ex Command to locate the tag exactly
     let l:expr = substitute(l:excmd, '/^', '/^\\C', 'g')
